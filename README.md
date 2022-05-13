@@ -4,11 +4,11 @@
 
 &nbsp;
 
-|      Title      |   Value    | version |
-| :-------------: | :--------: | :-----: |
-|    Language     | Typescript |  4.4.4  |
-|  UI Framework   |   React    | 17.0.2  |
-| Package Manager |    yarn    | 1.22.14 |
+|      Title      |   Value    |
+| :-------------: | :--------: |
+|    Language     | Typescript |
+|  UI Framework   |   React    |
+| Package Manager |    yarn    |
 
 &nbsp;
 
