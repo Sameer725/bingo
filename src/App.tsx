@@ -13,6 +13,7 @@ import { DataType, DEFAULT_GRID_SIZE } from "./const";
 import { calculateBingo, generateData, updateGridSize } from "./utils";
 
 const gridSize = DEFAULT_GRID_SIZE;
+const getBingos = calculateBingo();
 
 const App = () => {
   const [bingoData, setBingoData] = useState<DataType[][]>(() =>
@@ -27,7 +28,7 @@ const App = () => {
   }, []);
 
   const { rows, columns, diagonals } = useMemo(
-    () => calculateBingo(bingoData),
+    () => getBingos(bingoData),
     [bingoData]
   );
 

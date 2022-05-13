@@ -40,57 +40,61 @@ export const generateData = (gridLength: number = DEFAULT_GRID_SIZE) => {
      range.every(index => selected[index *gridLength + (gridLength - 1 ) - index])
  */
 
-const rows = new Set<number>();
-const columns = new Set<number>();
-const diagonals = new Set<number>();
+export const calculateBingo = () => {
+  const rows = new Set<number>();
+  const columns = new Set<number>();
+  const diagonals = new Set<number>();
 
-export const calculateBingo = (state: DataType[][]) => {
-  let isFirstDiagonalBingo = true;
-  let isSecondDiagonalBingo = true;
+  return (state: DataType[][]) => {
+    let isFirstDiagonalBingo = true;
+    let isSecondDiagonalBingo = true;
 
-  for (let row = 0; row < state.length; row++) {
-    const isRowBingo = state.every((r, index) => state[row][index].selected);
-    const isColumnBingo = state.every((r, index) => state[index][row].selected);
-    isFirstDiagonalBingo = isFirstDiagonalBingo && state[row][row].selected;
-    isSecondDiagonalBingo =
-      isSecondDiagonalBingo && state[state.length - 1 - row][row].selected;
+    for (let row = 0; row < state.length; row++) {
+      const isRowBingo = state.every((r, index) => state[row][index].selected);
+      const isColumnBingo = state.every(
+        (r, index) => state[index][row].selected
+      );
+      isFirstDiagonalBingo = isFirstDiagonalBingo && state[row][row].selected;
+      isSecondDiagonalBingo =
+        isSecondDiagonalBingo && state[state.length - 1 - row][row].selected;
 
-    if (isRowBingo) {
-      rows.add(row);
+      if (isRowBingo) {
+        rows.add(row);
+      }
+
+      if (!isRowBingo) {
+        rows.delete(row);
+      }
+
+      if (isColumnBingo) {
+        columns.add(row);
+      }
+
+      if (!isColumnBingo) {
+        columns.delete(row);
+      }
     }
 
-    if (!isRowBingo) {
-      rows.delete(row);
+    if (isFirstDiagonalBingo) {
+      diagonals.add(0);
     }
 
-    if (isColumnBingo) {
-      columns.add(row);
+    if (!isFirstDiagonalBingo) {
+      diagonals.delete(0);
+    }
+    if (isSecondDiagonalBingo) {
+      diagonals.add(1);
     }
 
-    if (!isColumnBingo) {
-      columns.delete(row);
+    if (!isSecondDiagonalBingo) {
+      diagonals.delete(1);
     }
-  }
 
-  if (isFirstDiagonalBingo) {
-    diagonals.add(0);
-  }
-
-  if (!isFirstDiagonalBingo) {
-    diagonals.delete(0);
-  }
-  if (isSecondDiagonalBingo) {
-    diagonals.add(1);
-  }
-
-  if (!isSecondDiagonalBingo) {
-    diagonals.delete(1);
-  }
-
-  return {
-    rows: Array.from(rows),
-    columns: Array.from(columns),
-    diagonals: Array.from(diagonals),
+    return {
+      rows: Array.from(rows),
+      columns: Array.from(columns),
+      diagonals: Array.from(diagonals),
+    };
   };
 };
 
