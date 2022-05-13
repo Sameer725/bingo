@@ -2,7 +2,7 @@
   "name": "bingo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://sameer725.github.io/bing0",
+  "homepage": "http://sameer725.github.io/bingo",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
