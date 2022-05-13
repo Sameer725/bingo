@@ -1,13 +1,13 @@
 import React, { useCallback, useMemo } from "react";
 
 interface TileProps {
-  isCalled: boolean;
-  isWobble: boolean;
-  onToggle(rowIndex: number, columnIndex: number): void;
   title: string;
   rowIndex: number;
-  columnIndex: number;
+  onToggle(rowIndex: number, columnIndex: number): void;
+  isWobble: boolean;
   isFree?: boolean;
+  isCalled: boolean;
+  columnIndex: number;
 }
 
 const TileComponent: React.FC<TileProps> = (props) => {
