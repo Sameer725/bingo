@@ -25,4 +25,4 @@ yarn start
 - There's a free slot (always on) in the middle
 - You can have multiple bingos
 
-https://github.com/Sameer725/bingo/blob/284b9dca0c363c6cdbf7f9e4376ec4310e129264/src/App.tsx#L2C1-L10C1
+`https://github.com/Sameer725/bingo/blob/284b9dca0c363c6cdbf7f9e4376ec4310e129264/src/App.tsx#L2C1-L10C1`
